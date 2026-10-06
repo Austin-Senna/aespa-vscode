@@ -1,0 +1,250 @@
+{
+  "name": "aespa-themes",
+  "displayName": "aespa Themes",
+  "description": "Twelve VS Code color themes, one per aespa era. From Black Mamba's ice-blue arena to LEMONADE's candy light mode.",
+  "version": "0.1.0",
+  "publisher": "AustinSenna",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Austin-Senna/aespa-vscode.git",
+    "directory": "aespa-themes"
+  },
+  "license": "MIT",
+  "type": "module",
+  "icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#0B0B10",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/Austin-Senna/aespa-vscode#readme",
+  "bugs": {
+    "url": "https://github.com/Austin-Senna/aespa-vscode/issues"
+  },
+  "keywords": [
+    "aespa",
+    "theme",
+    "color-theme",
+    "dark",
+    "light",
+    "kpop",
+    "winter",
+    "karina"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.cjs",
+  "contributes": {
+    "themes": [
+      {
+        "id": "aespa-black-mamba",
+        "label": "aespa · Black Mamba",
+        "uiTheme": "vs-dark",
+        "path": "./themes/black-mamba-color-theme.json"
+      },
+      {
+        "id": "aespa-next-level",
+        "label": "aespa · Next Level",
+        "uiTheme": "vs-dark",
+        "path": "./themes/next-level-color-theme.json"
+      },
+      {
+        "id": "aespa-savage",
+        "label": "aespa · Savage",
+        "uiTheme": "vs-dark",
+        "path": "./themes/savage-color-theme.json"
+      },
+      {
+        "id": "aespa-girls",
+        "label": "aespa · Girls",
+        "uiTheme": "vs-dark",
+        "path": "./themes/girls-color-theme.json"
+      },
+      {
+        "id": "aespa-my-world",
+        "label": "aespa · MY WORLD",
+        "uiTheme": "vs-dark",
+        "path": "./themes/my-world-color-theme.json"
+      },
+      {
+        "id": "aespa-drama",
+        "label": "aespa · Drama",
+        "uiTheme": "vs-dark",
+        "path": "./themes/drama-color-theme.json"
+      },
+      {
+        "id": "aespa-armageddon",
+        "label": "aespa · Armageddon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/armageddon-color-theme.json"
+      },
+      {
+        "id": "aespa-whiplash",
+        "label": "aespa · Whiplash",
+        "uiTheme": "vs-dark",
+        "path": "./themes/whiplash-color-theme.json"
+      },
+      {
+        "id": "aespa-dirty-work",
+        "label": "aespa · Dirty Work",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dirty-work-color-theme.json"
+      },
+      {
+        "id": "aespa-rich-man",
+        "label": "aespa · Rich Man",
+        "uiTheme": "vs",
+        "path": "./themes/rich-man-color-theme.json"
+      },
+      {
+        "id": "aespa-lemonade",
+        "label": "aespa · LEMONADE",
+        "uiTheme": "vs",
+        "path": "./themes/lemonade-color-theme.json"
+      },
+      {
+        "id": "aespa-kiss-n-tell",
+        "label": "aespa · KISS N TELL",
+        "uiTheme": "vs",
+        "path": "./themes/kiss-n-tell-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "aespa-black-mamba-icons",
+        "label": "aespa · Black Mamba Icons",
+        "path": "./icons/black-mamba/black-mamba-icon-theme.json"
+      },
+      {
+        "id": "aespa-next-level-icons",
+        "label": "aespa · Next Level Icons",
+        "path": "./icons/next-level/next-level-icon-theme.json"
+      },
+      {
+        "id": "aespa-savage-icons",
+        "label": "aespa · Savage Icons",
+        "path": "./icons/savage/savage-icon-theme.json"
+      },
+      {
+        "id": "aespa-girls-icons",
+        "label": "aespa · Girls Icons",
+        "path": "./icons/girls/girls-icon-theme.json"
+      },
+      {
+        "id": "aespa-my-world-icons",
+        "label": "aespa · MY WORLD Icons",
+        "path": "./icons/my-world/my-world-icon-theme.json"
+      },
+      {
+        "id": "aespa-drama-icons",
+        "label": "aespa · Drama Icons",
+        "path": "./icons/drama/drama-icon-theme.json"
+      },
+      {
+        "id": "aespa-armageddon-icons",
+        "label": "aespa · Armageddon Icons",
+        "path": "./icons/armageddon/armageddon-icon-theme.json"
+      },
+      {
+        "id": "aespa-whiplash-icons",
+        "label": "aespa · Whiplash Icons",
+        "path": "./icons/whiplash/whiplash-icon-theme.json"
+      },
+      {
+        "id": "aespa-dirty-work-icons",
+        "label": "aespa · Dirty Work Icons",
+        "path": "./icons/dirty-work/dirty-work-icon-theme.json"
+      },
+      {
+        "id": "aespa-rich-man-icons",
+        "label": "aespa · Rich Man Icons",
+        "path": "./icons/rich-man/rich-man-icon-theme.json"
+      },
+      {
+        "id": "aespa-lemonade-icons",
+        "label": "aespa · LEMONADE Icons",
+        "path": "./icons/lemonade/lemonade-icon-theme.json"
+      },
+      {
+        "id": "aespa-kiss-n-tell-icons",
+        "label": "aespa · KISS N TELL Icons",
+        "path": "./icons/kiss-n-tell/kiss-n-tell-icon-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "aespa.chooseEra",
+        "title": "Choose Era",
+        "category": "aespa",
+        "icon": "$(symbol-color)"
+      },
+      {
+        "command": "aespa.nextEra",
+        "title": "Next Era",
+        "category": "aespa"
+      },
+      {
+        "command": "aespa.previousEra",
+        "title": "Previous Era",
+        "category": "aespa"
+      },
+      {
+        "command": "aespa.randomEra",
+        "title": "Random Era",
+        "category": "aespa"
+      },
+      {
+        "command": "aespa.syncIcons",
+        "title": "Match Icon Theme to Color Theme",
+        "category": "aespa"
+      }
+    ],
+    "configuration": {
+      "title": "aespa Themes",
+      "properties": {
+        "aespa.syncIconTheme": {
+          "type": "boolean",
+          "default": true,
+          "description": "When the color theme changes to an aespa era, switch the file icon theme to that era's icons."
+        },
+        "aespa.statusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the current era in the status bar."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsx scripts/glyph-barrel.ts && tsx src/build.ts",
+    "bundle": "esbuild src/extension/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.cjs --minify",
+    "check-types": "tsc --noEmit",
+    "test": "npm run build && vitest run",
+    "update-keys": "tsx scripts/update-keys.ts",
+    "vscode:prepublish": "npm run build && npm run bundle",
+    "package": "vsce package",
+    "glyphs:barrel": "tsx scripts/glyph-barrel.ts",
+    "glyphs:check": "tsx scripts/glyph-check.ts",
+    "glyphs:import": "tsx scripts/import-icon.ts"
+  },
+  "devDependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@types/node": "22.x",
+    "@types/opentype.js": "^1.3.10",
+    "@types/vscode": "1.80.0",
+    "@vscode/vsce": "^3.6.0",
+    "esbuild": "^0.27.7",
+    "opentype.js": "^1.3.4",
+    "svgpath": "^2.6.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
