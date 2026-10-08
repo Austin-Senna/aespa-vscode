@@ -1,11 +1,11 @@
-import type { EraPalette } from "../palette.js";
+import { derive } from "../derive.js";
 
 /**
- * Futuristic runway. Monochrome: color is removed rather than added.
- * Syntax is carried by grey steps plus bold and underline. Diagnostics keep
- * muted hues because losing error visibility is a bug, not a look.
+ * Futuristic runway. The page stays black and white; syntax is cut from ice:
+ * steel blue, glacier, frost lavender, all low chroma so it still reads as
+ * monochrome from across the room. Keywords keep the bold.
  */
-export const whiplash: EraPalette = {
+export const whiplash = derive({
   slug: "whiplash",
   label: "aespa · Whiplash",
   title: "Whiplash",
@@ -13,28 +13,20 @@ export const whiplash: EraPalette = {
   type: "dark",
   finish: "mono",
   seed: { a: "#000000", b: "#FFFFFF", glow: "#C9CED6" },
-  bg: { base: "#0a0a0b", mantle: "#050506", crust: "#000000" },
-  surface: { s0: "#161618", s1: "#202023", s2: "#2c2c30" },
-  border: "#232326",
-  fg: { text: "#f4f4f5", subtext: "#b8b9be", muted: "#77787e" },
-  accent: "#ffffff",
-  accent2: "#c9ced6",
-  syntax: {
-    keyword: "#ffffff",
-    storage: "#c9ced6",
-    string: "#b4b7be",
-    number: "#d6d8dd",
-    function: "#f4f4f5",
-    type: "#dadce1",
-    variable: "#c9ced6",
-    property: "#b8b9be",
-    comment: "#9a9ba1",
-    operator: "#b8b9be",
-    tag: "#ffffff",
-    attribute: "#b4b7be",
-    regexp: "#b4b7be",
-    escape: "#ffffff",
+  bg: { h: 250, c: 0.008, l: 0.17 },
+  mood: "muted",
+  accent: "#e8eef5",
+  accent2: { h: 245, c: 0.07, l: 0.76 },
+  brand: "#c9d6e3",
+  hues: {
+    keyword: { h: 230, c: 0.04, l: 0.96 },
+    storage: { h: 248, c: 0.075, l: 0.77 },
+    string: { h: 200, c: 0.06, l: 0.86 },
+    number: { h: 280, c: 0.065, l: 0.81 },
+    function: { h: 220, c: 0.035, l: 0.9 },
+    type: { h: 190, c: 0.065, l: 0.8 },
+    property: { h: 240, c: 0.02, l: 0.82 },
+    regexp: { h: 180, c: 0.07, l: 0.84 },
   },
-  status: { success: "#9fd3b0", warning: "#e0c98a", error: "#f6a3ab", info: "#a8bfe0" },
-  style: { italicComments: true, boldKeywords: true, underlineTypes: true },
-};
+  style: { boldKeywords: true },
+});

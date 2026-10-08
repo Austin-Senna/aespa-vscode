@@ -29,7 +29,7 @@ for (const g of [...GLYPHS, ...items]) {
 }
 
 const dark = eras.find((e) => e.slug === "savage")!;
-const light = eras.find((e) => e.slug === "lemonade")!;
+const light = eras.find((e) => e.slug === "kiss-n-tell")!;
 
 function bare(g: Glyph, color: string): string {
   const rule = g.fillRule ? ` fill-rule="${g.fillRule}"` : "";

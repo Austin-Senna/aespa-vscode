@@ -1,6 +1,6 @@
 import { derive } from "../derive.js";
 
-/** Desert highway, Y2K cyber, chrome on tan. */
+/** Desert highway, Y2K cyber, chrome on tan. Teal night, sand status bar. */
 export const nextLevel = derive({
   slug: "next-level",
   label: "aespa · Next Level",
@@ -9,17 +9,18 @@ export const nextLevel = derive({
   type: "dark",
   finish: "chrome",
   seed: { a: "#C9A86A", b: "#1C6E73", glow: "#DDE2EA" },
-  bg: { h: 195, c: 0.018 },
+  bg: { h: 200, c: 0.04, l: 0.22 },
   mood: "normal",
-  accent: { h: 80, c: 0.11 },
-  accent2: { h: 195, c: 0.11 },
+  accent: { h: 80, c: 0.11, l: 0.78 },
+  accent2: { h: 190, c: 0.1, l: 0.76 },
+  brand: "#c9a86a",
   hues: {
-    keyword: 195,
-    storage: 80,
-    string: 130,
-    number: 55,
-    function: { h: 230, c: 0.03, l: 0.86 },
-    type: 165,
-    regexp: 30,
+    keyword: { h: 80, c: 0.12, l: 0.8 },
+    storage: { h: 192, c: 0.1, l: 0.76 },
+    string: { h: 140, c: 0.09, l: 0.83 },
+    number: { h: 45, c: 0.13, l: 0.79 },
+    function: { h: 230, c: 0.03, l: 0.9 },
+    type: { h: 172, c: 0.1, l: 0.8 },
+    regexp: { h: 30, c: 0.12, l: 0.8 },
   },
 });

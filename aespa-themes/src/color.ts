@@ -83,6 +83,11 @@ export function contrast(a: string, b: string): number {
   return (hi + 0.05) / (lo + 0.05);
 }
 
+/** Whichever candidate reads best on `fill`. */
+export function readableOn(fill: string, candidates: readonly string[]): string {
+  return candidates.reduce((best, c) => (contrast(c, fill) > contrast(best, fill) ? c : best));
+}
+
 function apcaY(hex: string): number {
   const { r, g, b } = toRgb(hex);
   const y = 0.2126729 * Math.pow(r / 255, 2.4) + 0.7151522 * Math.pow(g / 255, 2.4) + 0.072175 * Math.pow(b / 255, 2.4);

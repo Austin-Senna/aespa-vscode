@@ -1,6 +1,6 @@
 import { derive } from "../derive.js";
 
-/** Femme fatale cinema. Red carries the page, gold is reserved for highlights. */
+/** Femme fatale cinema. A crimson-black stage, crimson carrying the page, gold for highlights. */
 export const drama = derive({
   slug: "drama",
   label: "aespa · Drama",
@@ -9,17 +9,18 @@ export const drama = derive({
   type: "dark",
   finish: "matte",
   seed: { a: "#B3121B", b: "#0B0B10", glow: "#D4AF37" },
-  bg: { h: 20, c: 0.008, l: 0.21 },
-  mood: "muted",
-  accent: "#d4af37",
-  accent2: { h: 25, c: 0.15, l: 0.7 },
+  bg: { h: 18, c: 0.042, l: 0.165 },
+  mood: "vivid",
+  accent: { h: 22, c: 0.2, l: 0.62 },
+  accent2: "#d4af37",
+  brand: "#b3121b",
   hues: {
-    keyword: { h: 25, c: 0.15, l: 0.8 },
-    storage: { h: 350, c: 0.06 },
-    string: { h: 78, c: 0.07, l: 0.84 },
-    number: { h: 50, c: 0.11 },
-    function: { h: 88, c: 0.12 },
-    type: { h: 15, c: 0.08 },
+    keyword: { h: 22, c: 0.19, l: 0.79 },
+    storage: { h: 8, c: 0.14, l: 0.8 },
+    string: { h: 85, c: 0.09, l: 0.87 },
+    number: { h: 40, c: 0.15, l: 0.8 },
+    function: { h: 88, c: 0.14, l: 0.83 },
+    type: { h: 355, c: 0.13, l: 0.8 },
   },
   status: { info: { h: 250, c: 0.07 } },
 });

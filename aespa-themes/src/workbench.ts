@@ -1,16 +1,18 @@
 /** Map palette roles onto VS Code workbench color keys. */
-import { alpha, mix } from "./color.js";
+import { alpha, mix, readableOn } from "./color.js";
 import type { EraPalette } from "./palette.js";
 import { deriveAnsi } from "./ansi.js";
 
 export type WorkbenchColors = Record<string, string>;
 
 export function workbenchColors(era: EraPalette): WorkbenchColors {
-  const { bg, surface, border, fg, accent, accent2, syntax, status, type } = era;
+  const { bg, surface, border, fg, accent, accent2, brand, syntax, status, type } = era;
   const dark = type === "dark";
   const ansi = deriveAnsi(era);
   /** Text that sits on top of a solid accent fill. */
-  const onAccent = dark ? bg.crust : "#ffffff";
+  const onAccent = readableOn(accent, [bg.crust, "#ffffff"]);
+  /** Text on the status bar's signature fill. */
+  const onBrand = era.brandText ?? readableOn(brand, [bg.crust, fg.text, "#ffffff", "#000000"]);
   const shadow = dark ? alpha("#000000", 0.45) : alpha("#000000", 0.18);
   const lineHighlight = alpha(fg.text, dark ? 0.04 : 0.06);
   const selection = alpha(accent, dark ? 0.28 : 0.24);
@@ -421,29 +423,30 @@ export function workbenchColors(era: EraPalette): WorkbenchColors {
     "outputViewStickyScroll.background": bg.mantle,
 
     // Status bar
-    "statusBar.background": bg.crust,
-    "statusBar.foreground": fg.subtext,
-    "statusBar.border": border,
-    "statusBar.focusBorder": accent,
-    "statusBar.inactiveBackground": bg.crust,
-    "statusBar.debuggingBackground": mix(bg.crust, status.warning, dark ? 0.35 : 0.45),
-    "statusBar.debuggingForeground": fg.text,
+    "statusBar.background": brand,
+    "statusBar.foreground": onBrand,
+    "statusBar.border": brand,
+    "statusBar.focusBorder": onBrand,
+    "statusBar.inactiveBackground": mix(brand, bg.crust, 0.35),
+    "statusBar.debuggingBackground": status.warning,
+    "statusBar.debuggingForeground": readableOn(status.warning, [bg.crust, "#ffffff"]),
     "statusBar.debuggingBorder": status.warning,
     "statusBar.noFolderBackground": bg.crust,
     "statusBar.noFolderForeground": fg.subtext,
     "statusBar.noFolderBorder": border,
-    "statusBarItem.activeBackground": alpha(fg.text, 0.14),
-    "statusBarItem.hoverBackground": alpha(fg.text, 0.08),
-    "statusBarItem.hoverForeground": fg.text,
-    "statusBarItem.focusBorder": accent,
-    "statusBarItem.prominentBackground": alpha(accent, 0.25),
-    "statusBarItem.prominentForeground": fg.text,
-    "statusBarItem.prominentHoverBackground": alpha(accent, 0.35),
-    "statusBarItem.prominentHoverForeground": fg.text,
-    "statusBarItem.remoteBackground": accent2,
-    "statusBarItem.remoteForeground": dark ? bg.crust : "#ffffff",
-    "statusBarItem.remoteHoverBackground": mix(accent2, fg.text, 0.15),
-    "statusBarItem.remoteHoverForeground": dark ? bg.crust : "#ffffff",
+    "statusBarItem.activeBackground": alpha(onBrand, 0.2),
+    "statusBarItem.hoverBackground": alpha(onBrand, 0.12),
+    "statusBarItem.hoverForeground": onBrand,
+    "statusBarItem.focusBorder": onBrand,
+    "statusBarItem.prominentBackground": alpha(onBrand, 0.16),
+    "statusBarItem.prominentForeground": onBrand,
+    "statusBarItem.prominentHoverBackground": alpha(onBrand, 0.24),
+    "statusBarItem.prominentHoverForeground": onBrand,
+    // The remote chip inverts the bar so it stays distinct on any brand fill.
+    "statusBarItem.remoteBackground": onBrand,
+    "statusBarItem.remoteForeground": brand,
+    "statusBarItem.remoteHoverBackground": mix(onBrand, brand, 0.15),
+    "statusBarItem.remoteHoverForeground": brand,
     "statusBarItem.errorBackground": status.error,
     "statusBarItem.errorForeground": dark ? bg.crust : "#ffffff",
     "statusBarItem.errorHoverBackground": mix(status.error, fg.text, 0.15),
@@ -452,7 +455,7 @@ export function workbenchColors(era: EraPalette): WorkbenchColors {
     "statusBarItem.warningForeground": bg.crust,
     "statusBarItem.warningHoverBackground": mix(status.warning, fg.text, 0.15),
     "statusBarItem.warningHoverForeground": bg.crust,
-    "statusBarItem.compactHoverBackground": alpha(fg.text, 0.12),
+    "statusBarItem.compactHoverBackground": alpha(onBrand, 0.12),
     "statusBarItem.offlineBackground": status.error,
     "statusBarItem.offlineForeground": dark ? bg.crust : "#ffffff",
 

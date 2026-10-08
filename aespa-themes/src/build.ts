@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { eras } from "./eras/index.js";
 import { compileTheme, themeFileName, uiTheme } from "./theme.js";
 import { iconThemeFileName, writeIconTheme } from "./icons/build.js";
+import { colorThemeId, iconThemeId } from "./palette.js";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const THEMES_DIR = resolve(ROOT, "themes");
@@ -19,7 +20,7 @@ export interface ThemeContribution {
 
 export function themeContributions(): ThemeContribution[] {
   return eras.map((era) => ({
-    id: `aespa-${era.slug}`,
+    id: colorThemeId(era),
     label: era.label,
     uiTheme: uiTheme(era),
     path: `./themes/${themeFileName(era)}`,
@@ -34,7 +35,7 @@ export interface IconThemeContribution {
 
 export function iconThemeContributions(): IconThemeContribution[] {
   return eras.map((era) => ({
-    id: `aespa-${era.slug}-icons`,
+    id: iconThemeId(era),
     label: `${era.label} Icons`,
     path: `./icons/${era.slug}/${iconThemeFileName(era)}`,
   }));

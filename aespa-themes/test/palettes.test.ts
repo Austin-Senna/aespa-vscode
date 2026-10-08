@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { apca, contrast, isHex, luminance } from "../src/color.js";
 import { eras } from "../src/eras/index.js";
 import { deriveAnsi } from "../src/ansi.js";
+import { hexToOklch } from "../src/oklch.js";
 
 const AA = 4.5;
 const LARGE = 3;
@@ -21,6 +22,8 @@ describe.each(eras.map((era) => [era.slug, era] as const))("%s palette", (_slug,
       ...Object.values(era.fg),
       era.accent,
       era.accent2,
+      era.brand,
+      ...(era.brandText ? [era.brandText] : []),
       ...Object.values(era.syntax),
       ...Object.values(era.status),
       ...Object.values(era.ansi ?? {}),
@@ -83,6 +86,17 @@ describe.each(eras.map((era) => [era.slug, era] as const))("%s palette", (_slug,
     }
     for (const [k, hex] of Object.entries(era.status)) {
       expect(lc(hex), k).toBeGreaterThanOrEqual(60);
+    }
+  });
+
+  it("ANSI magenta and cyan look like magenta and cyan", () => {
+    const ansi = deriveAnsi(era);
+    const dist = (h: number, target: number) => {
+      const d = Math.abs(h - target) % 360;
+      return d > 180 ? 360 - d : d;
+    };
+    for (const [name, target] of [["magenta", 330], ["brightMagenta", 330], ["cyan", 200], ["brightCyan", 200]] as const) {
+      expect(dist(hexToOklch(ansi[name]).h, target), name).toBeLessThanOrEqual(35);
     }
   });
 

@@ -2,7 +2,7 @@
   "name": "aespa-themes",
   "displayName": "aespa Themes",
   "description": "Twelve VS Code color themes, one per aespa era. From Black Mamba's ice-blue arena to LEMONADE's candy light mode.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "AustinSenna",
   "repository": {
     "type": "git",
@@ -70,7 +70,7 @@
       {
         "id": "aespa-my-world",
         "label": "aespa · MY WORLD",
-        "uiTheme": "vs-dark",
+        "uiTheme": "vs",
         "path": "./themes/my-world-color-theme.json"
       },
       {
@@ -100,13 +100,13 @@
       {
         "id": "aespa-rich-man",
         "label": "aespa · Rich Man",
-        "uiTheme": "vs",
+        "uiTheme": "vs-dark",
         "path": "./themes/rich-man-color-theme.json"
       },
       {
         "id": "aespa-lemonade",
         "label": "aespa · LEMONADE",
-        "uiTheme": "vs",
+        "uiTheme": "vs-dark",
         "path": "./themes/lemonade-color-theme.json"
       },
       {
@@ -212,7 +212,7 @@
         "aespa.syncIconTheme": {
           "type": "boolean",
           "default": true,
-          "description": "When the color theme changes to an aespa era, switch the file icon theme to that era's icons."
+          "description": "Keep an era's color theme and file icon theme together: picking either one from the normal theme pickers switches the other to the same era."
         },
         "aespa.statusBar": {
           "type": "boolean",

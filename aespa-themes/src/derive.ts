@@ -26,12 +26,16 @@ export interface EraSpec {
   /**
    * Background hue, optional chroma (default 0.025 dark, 0.012 light) and
    * optional editor lightness (default 0.23 dark, 0.965 light; mantle and
-   * crust step down from it).
+   * crust step down from it). Surfaces use at least 0.03 dark / 0.015 light
+   * chroma unless `surfaceC` overrides it for a neutral page.
    */
-  bg: { h: number; c?: number; l?: number };
+  bg: { h: number; c?: number; l?: number; surfaceC?: number };
   mood: Mood;
   accent: Tone;
   accent2: Tone;
+  /** Status bar fill. A literal hex: the signature color is picked, not derived. */
+  brand: `#${string}`;
+  brandText?: `#${string}`;
   /** Role hues. property defaults to a quiet tint of the function hue. */
   hues: {
     keyword: Tone;
@@ -122,7 +126,7 @@ export function derive(spec: EraSpec): EraPalette {
   const bgH = spec.bg.h;
   const bgC = spec.bg.c ?? b.bgC;
   const bgShift = (spec.bg.l ?? b.bg[0]) - b.bg[0];
-  const sC = Math.max(b.surfaceC, bgC);
+  const sC = spec.bg.surfaceC ?? Math.max(b.surfaceC, bgC);
   const hues = spec.hues;
   const acc = (t: Tone) => tone(t, b.accentL, b.accentC);
 
@@ -180,6 +184,8 @@ export function derive(spec: EraSpec): EraPalette {
     fg: { text: fgText, subtext: fgSubtext, muted: fgMuted },
     accent: tone(spec.accent, b.uiAccentL, b.uiAccentC),
     accent2: tone(spec.accent2, b.uiAccentL, b.uiAccentC),
+    brand: spec.brand,
+    brandText: spec.brandText,
     syntax,
     status,
     style: spec.style,

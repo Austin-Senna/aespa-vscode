@@ -102,6 +102,13 @@ export interface EraPalette {
   fg: Foregrounds;
   accent: string;
   accent2: string;
+  /**
+   * The era's signature color at full strength, filled behind the status bar.
+   * Syntax stays in legible bands; this is where the era is loud.
+   */
+  brand: string;
+  /** Status bar text. Defaults to whichever neutral reads best on `brand`. */
+  brandText?: string;
   syntax: SyntaxRoles;
   status: StatusRoles;
   ansi?: Partial<AnsiRoles>;
@@ -116,4 +123,17 @@ export const DEFAULT_STYLE: StyleFlags = {
 
 export function styleOf(era: EraPalette): StyleFlags {
   return { ...DEFAULT_STYLE, ...era.style };
+}
+
+/**
+ * The contributed color theme id. VS Code stores this id, not the label, in
+ * `workbench.colorTheme`, and a label written there matches no theme.
+ */
+export function colorThemeId(era: Pick<EraPalette, "slug">): string {
+  return `aespa-${era.slug}`;
+}
+
+/** The contributed file icon theme id, as stored in `workbench.iconTheme`. */
+export function iconThemeId(era: Pick<EraPalette, "slug">): string {
+  return `aespa-${era.slug}-icons`;
 }

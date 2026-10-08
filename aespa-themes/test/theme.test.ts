@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { isHex } from "../src/color.js";
+import { contrast, isHex } from "../src/color.js";
 import { eras } from "../src/eras/index.js";
 import { compileTheme, themeFileName } from "../src/theme.js";
 import { iconThemeContributions, themeContributions } from "../src/build.js";
@@ -47,6 +47,12 @@ describe.each(eras.map((era) => [era.slug, era] as const))("%s theme", (_slug, e
         expect(isHex(fg), selector).toBe(true);
       }
     }
+  });
+
+  it("keeps status bar text legible on the brand fill", () => {
+    expect(theme.colors["statusBar.background"]).toBe(era.brand);
+    expect(contrast(theme.colors["statusBar.foreground"], era.brand)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(theme.colors["statusBarItem.remoteForeground"], theme.colors["statusBarItem.remoteBackground"])).toBeGreaterThanOrEqual(4.5);
   });
 
   it("matches the committed theme file", () => {

@@ -1,6 +1,6 @@
 import { derive } from "../derive.js";
 
-/** Industrial construction site. Rust, mud, raw steel, off-white. Grunge, not glamour. */
+/** The covers: pure black, bling gold blackletter, chrome tin case, safety orange. */
 export const dirtyWork = derive({
   slug: "dirty-work",
   label: "aespa · Dirty Work",
@@ -8,17 +8,19 @@ export const dirtyWork = derive({
   year: 2025,
   type: "dark",
   finish: "grunge",
-  seed: { a: "#8C4A2F", b: "#3A3F44", glow: "#E8E2D6" },
-  bg: { h: 60, c: 0.008 },
-  mood: "muted",
-  accent: { h: 40, c: 0.14, l: 0.72 },
-  accent2: { h: 240, c: 0.03, l: 0.72 },
+  seed: { a: "#0B0B0B", b: "#B8924A", glow: "#F04E1E" },
+  bg: { h: 80, c: 0.004, l: 0.155, surfaceC: 0.008 },
+  mood: "normal",
+  accent: { h: 82, c: 0.12, l: 0.76 },
+  accent2: { h: 250, c: 0.015, l: 0.78 },
+  brand: "#7a3f22",
+  brandText: "#e2bd6a",
   hues: {
-    keyword: { h: 40, c: 0.13 },
-    storage: { h: 75, c: 0.08 },
-    string: { h: 115, c: 0.08 },
-    number: { h: 60, c: 0.11 },
-    function: { h: 85, c: 0.05, l: 0.86 },
-    type: { h: 230, c: 0.05 },
+    keyword: { h: 82, c: 0.12, l: 0.82 },
+    storage: { h: 42, c: 0.17, l: 0.79 },
+    string: { h: 250, c: 0.02, l: 0.85 },
+    number: { h: 62, c: 0.14, l: 0.81 },
+    function: { h: 90, c: 0.09, l: 0.9 },
+    type: { h: 230, c: 0.045, l: 0.8 },
   },
 });
